@@ -70,7 +70,7 @@ a {
 .sketch-nav .brand {
   justify-content: flex-start;
   padding-left: 0;
-  font-size: clamp(1.2rem, 1.65vw, 1.65rem);
+  font-size: var(--section-name-size);
 }
 
 .sketch-nav a:not(.brand) {
@@ -96,6 +96,10 @@ a {
 
 main {
   padding-top: clamp(4rem, 11vw, 8rem);
+}
+
+.page-main {
+  padding-top: clamp(1rem, 3vw, 2rem);
 }
 
 .intro-section,
@@ -133,7 +137,7 @@ main {
 }
 
 .research-section {
-  padding-top: clamp(1rem, 3vw, 2rem);
+  padding-top: 0;
 }
 
 .research-list {
@@ -179,7 +183,7 @@ main {
 }
 
 .cv-section-page {
-  padding-top: clamp(1rem, 3vw, 2rem);
+  padding-top: 0;
 }
 
 .cv-layout {
@@ -273,7 +277,7 @@ main {
 }
 
 .contact-section {
-  padding-top: clamp(1rem, 3vw, 2rem);
+  padding-top: 0;
 }
 
 .contact-layout {
@@ -383,7 +387,6 @@ p {
 
   .sketch-nav .brand {
     min-width: max-content;
-    font-size: 1rem;
   }
 
   .sketch-nav a:not(.brand)::before,
