@@ -35,7 +35,12 @@ a {
 .sketch-nav {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(13rem, 1.45fr) repeat(4, minmax(7rem, 0.75fr));
+  grid-template-columns:
+    minmax(13rem, 1.45fr)
+    minmax(7rem, 0.75fr)
+    minmax(4.5rem, 0.45fr)
+    minmax(7rem, 0.75fr)
+    minmax(12rem, 1.05fr);
   align-items: end;
   max-width: 78rem;
   margin: 0 auto;
