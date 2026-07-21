@@ -318,6 +318,184 @@ main {
   color: var(--ink);
 }
 
+.event-section {
+  padding-top: 0;
+}
+
+.event-layout {
+  max-width: 74rem;
+}
+
+.event-heading {
+  margin-bottom: 2.25rem;
+}
+
+.event-heading h1 {
+  max-width: 17ch;
+  margin-bottom: 0;
+}
+
+.event-display-shell {
+  border: var(--rule);
+  background: var(--paper);
+}
+
+.event-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.5rem;
+  min-height: 3.5rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--ink);
+  font-size: 1rem;
+}
+
+.event-toolbar button {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.event-toolbar button:hover,
+.event-toolbar button:focus-visible {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.event-toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+}
+
+.event-toolbar input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--ink);
+}
+
+.event-canvas-wrap {
+  position: relative;
+  min-height: 30rem;
+  overflow: hidden;
+}
+
+#event-canvas {
+  display: block;
+  width: 100%;
+  height: min(65vh, 43rem);
+  min-height: 30rem;
+  cursor: grab;
+  outline: none;
+  touch-action: none;
+}
+
+#event-canvas.is-dragging {
+  cursor: grabbing;
+}
+
+#event-canvas:focus-visible {
+  box-shadow: inset 0 0 0 3px #236a9f;
+}
+
+.event-canvas-hint {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.85rem;
+  padding: 0.35rem 0.55rem;
+  color: var(--muted);
+  background: rgba(251, 250, 247, 0.88);
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.event-canvas-hint span {
+  padding: 0 0.25rem;
+}
+
+.event-meta {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.75fr) minmax(15rem, 0.75fr) minmax(20rem, 1.3fr);
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.event-meta h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.event-legend {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.event-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.legend-line {
+  display: inline-block;
+  width: 2rem;
+  border-top: 3px solid;
+}
+
+.legend-line.neutrino {
+  border-color: #2b9b92;
+  border-top-style: dashed;
+}
+
+.legend-line.muon {
+  border-color: #236a9f;
+}
+
+.legend-line.proton {
+  border-color: #c84a3c;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  margin: 0 0.675rem;
+  border-radius: 50%;
+}
+
+.legend-dot.hits {
+  background: #9b63bb;
+}
+
+.event-equation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 5.5rem;
+  padding: 1rem;
+  border: 1px solid var(--ink);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  white-space: nowrap;
+}
+
+.event-note {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
 .eyebrow {
   margin: 0 0 1rem;
   color: var(--muted);
@@ -431,5 +609,29 @@ p {
   .contact-list li {
     grid-template-columns: 1fr;
     gap: 0.25rem;
+  }
+
+  .event-heading,
+  .event-meta {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .event-heading h1 {
+    margin-bottom: 0;
+  }
+
+  .event-canvas-wrap,
+  #event-canvas {
+    min-height: 24rem;
+  }
+
+  #event-canvas {
+    height: 58vh;
+  }
+
+  .event-canvas-hint {
+    right: 0.5rem;
+    bottom: 0.5rem;
   }
 }
