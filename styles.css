@@ -103,6 +103,14 @@ main {
   padding-top: clamp(4rem, 11vw, 8rem);
 }
 
+.home-main {
+  padding-top: 1rem;
+}
+
+.home-main .intro-section {
+  padding-top: 2rem;
+}
+
 .page-main {
   padding-top: clamp(1rem, 3vw, 2rem);
 }
