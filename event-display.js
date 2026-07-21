@@ -100,6 +100,19 @@
     return (x - Math.floor(x) - 0.5) * scale;
   }
 
+  function isInsideDetectorVolume(position) {
+    const insideLiquidArgon =
+      Math.abs(position.x) <= 365 &&
+      Math.abs(position.y) <= 365 &&
+      Math.abs(position.z) <= 350;
+    const insideMinerVa =
+      Math.abs(position.x) <= 470 &&
+      Math.abs(position.y) <= 525 &&
+      (Math.abs(position.z - 1050) <= 85 || Math.abs(position.z + 1050) <= 85);
+
+    return insideLiquidArgon || insideMinerVa;
+  }
+
   function buildScene() {
     // Floor grid and z-axis beam guide.
     for (let z = -1300; z <= 1300; z += 260) {
@@ -180,20 +193,24 @@
     addPoint(vertex, { color: colors.vertex, radius: 7, group: "event" });
     addPoint(vertex, { color: colors.paper, radius: 2.3, group: "event" });
 
-    // Reconstructed charge deposits along both outgoing tracks.
-    for (let index = 1; index <= 42; index += 1) {
-      const amount = index / 44;
+    // Reconstructed charge deposits appear only inside active detector volumes.
+    for (let index = 1; index <= 140; index += 1) {
+      const amount = index / 141;
       const hit = interpolate(vertex, muonEnd, amount);
       hit.x += seededJitter(index, 34);
       hit.y += seededJitter(index + 70, 28);
-      addPoint(hit, { radius: index % 5 === 0 ? 3.2 : 2.2 });
+      if (isInsideDetectorVolume(hit)) {
+        addPoint(hit, { radius: index % 5 === 0 ? 3.2 : 2.2 });
+      }
     }
-    for (let index = 1; index <= 20; index += 1) {
-      const amount = index / 21;
+    for (let index = 1; index <= 60; index += 1) {
+      const amount = index / 61;
       const hit = interpolate(vertex, protonEnd, amount);
       hit.x += seededJitter(index + 130, 28);
       hit.y += seededJitter(index + 190, 28);
-      addPoint(hit, { radius: 2.8 + amount * 1.8 });
+      if (isInsideDetectorVolume(hit)) {
+        addPoint(hit, { radius: 2.8 + amount * 1.8 });
+      }
     }
 
     // Compact xyz orientation marker.

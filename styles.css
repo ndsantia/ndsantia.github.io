@@ -35,7 +35,7 @@ a {
 .sketch-nav {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(13rem, 1.45fr) repeat(3, minmax(7rem, 0.75fr));
+  grid-template-columns: minmax(13rem, 1.45fr) repeat(4, minmax(7rem, 0.75fr));
   align-items: end;
   max-width: 78rem;
   margin: 0 auto;
@@ -48,7 +48,7 @@ a {
   position: absolute;
   right: 0;
   bottom: 0.72rem;
-  left: 3.5rem;
+  left: 0;
   height: 0;
   border-bottom: var(--rule);
   pointer-events: none;
