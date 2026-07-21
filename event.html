@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neutrino Event Display | Nathaniel Santiago</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="event-display.js?v=2" defer></script>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <nav class="sketch-nav">
+        <a class="brand" href="index.html">Nathaniel Santiago</a>
+        <a href="research.html" aria-current="page">Research</a>
+        <a href="cv.html">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page-main">
+      <section class="page-section event-section" aria-labelledby="event-title">
+        <div class="section-inner event-layout">
+          <p class="eyebrow">DUNE near detector · Research Demonstration</p>
+          <div class="event-heading">
+            <h1 id="event-title">A muon-neutrino event in three dimensions</h1>
+          </div>
+
+          <div class="event-display-shell">
+            <div class="event-toolbar" aria-label="Event display controls">
+              <button id="reset-view" type="button">Reset view</button>
+              <label>
+                <input id="toggle-detector" type="checkbox" checked>
+                Detector
+              </label>
+              <label>
+                <input id="toggle-hits" type="checkbox" checked>
+                Hits
+              </label>
+              <label>
+                <input id="toggle-prediction" type="checkbox" checked>
+                Model Prediction
+              </label>
+            </div>
+
+            <div class="event-canvas-wrap">
+              <canvas
+                id="event-canvas"
+                tabindex="0"
+                aria-label="Interactive three-dimensional display of a muon-neutrino charged-current event. Drag to rotate and use the mouse wheel to zoom."
+              >
+                Your browser does not support the canvas element.
+              </canvas>
+              <div class="event-canvas-hint" aria-hidden="true">
+                Drag to orbit <span>·</span> Scroll to zoom
+              </div>
+            </div>
+          </div>
+
+          <div class="event-meta">
+            <div>
+              <h2>Event key</h2>
+              <ul class="event-legend">
+                <li><span class="legend-line neutrino"></span>Incoming ν<sub>μ</sub></li>
+                <li><span class="legend-line muon"></span>Outgoing μ<sup>−</sup></li>
+                <li><span class="legend-line proton"></span>Outgoing proton</li>
+                <li><span class="legend-dot hits"></span>Detector hits</li>
+              </ul>
+            </div>
+            <div class="event-equation" aria-label="Muon neutrino plus neutron produces a negative muon plus proton">
+              <span>ν<sub>μ</sub> + n</span>
+              <span aria-hidden="true">→</span>
+              <span>μ<sup>−</sup> + p</span>
+            </div>
+            <p class="event-note">
+              The central four-module volume represents the 2×2 liquid-argon time
+              projection chamber at the DUNE near detector. The surrounding two boxes
+              are MINERvA solid scintillator detectors. This is a toy event, although
+              it looks pretty close to the real thing. I built machine learning tools
+              that allowed us to make important predictions about events like this one.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
